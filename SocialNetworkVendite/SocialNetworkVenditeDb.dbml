@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SocialNetworkVenditeDb" Class="SocialNetworkVenditeDbDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-C5AL7JD;Initial Catalog=SocialNetworkVenditeDb;Integrated Security=True" SettingsObjectName="SocialNetworkVendite.Properties.Settings" SettingsPropertyName="SocialNetworkVenditeDbConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AMICIZIE" Member="AMICIZIEs">
+    <Type Name="AMICIZIE">
+      <Column Name="dataInizio" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="timeInizio" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dataFine" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="timeFine" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="emailUtente1" Type="System.String" DbType="VarChar(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="emailUtente2" Type="System.String" DbType="VarChar(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="UTENTI_AMICIZIE" Member="UTENTI" ThisKey="emailUtente1" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+      <Association Name="UTENTI_AMICIZIE1" Member="UTENTI1" ThisKey="emailUtente2" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ASSOCIAZIONI" Member="ASSOCIAZIONIs">
+    <Type Name="ASSOCIAZIONI">
+      <Column Name="nomeSezione" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nomeCategoria" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CATEGORIE_ASSOCIAZIONI" Member="CATEGORIE" ThisKey="nomeCategoria" OtherKey="nome" Type="CATEGORIE" IsForeignKey="true" />
+      <Association Name="SEZIONI_ASSOCIAZIONI" Member="SEZIONI" ThisKey="nomeSezione" OtherKey="nome" Type="SEZIONI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CATEGORIE" Member="CATEGORIEs">
+    <Type Name="CATEGORIE">
+      <Column Name="nome" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descrizione" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="emailUtente" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Association Name="CATEGORIE_ASSOCIAZIONI" Member="ASSOCIAZIONIs" ThisKey="nome" OtherKey="nomeCategoria" Type="ASSOCIAZIONI" />
+      <Association Name="CATEGORIE_PRODOTTI" Member="PRODOTTIs" ThisKey="nome" OtherKey="nomeCategoria" Type="PRODOTTI" />
+      <Association Name="UTENTI_CATEGORIE" Member="UTENTI" ThisKey="emailUtente" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SEZIONI" Member="SEZIONIs">
+    <Type Name="SEZIONI">
+      <Column Name="nome" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descrizione" Type="System.String" DbType="VarChar(400) NOT NULL" CanBeNull="false" />
+      <Column Name="immagine" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="dataCreazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="emailUtente" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Association Name="SEZIONI_ASSOCIAZIONI" Member="ASSOCIAZIONIs" ThisKey="nome" OtherKey="nomeSezione" Type="ASSOCIAZIONI" />
+      <Association Name="SEZIONI_PRODOTTI" Member="PRODOTTIs" ThisKey="nome" OtherKey="nomeSezione" Type="PRODOTTI" />
+      <Association Name="SEZIONI_POST" Member="POSTs" ThisKey="nome" OtherKey="nomeSezione" Type="POST" />
+      <Association Name="UTENTI_SEZIONI" Member="UTENTI" ThisKey="emailUtente" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UTENTI" Member="UTENTIs">
+    <Type Name="UTENTI">
+      <Column Name="email" Type="System.String" DbType="VarChar(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="cognome" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="sesso" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="dataNascita" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="luogoNascita" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="viaResidenza" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="numeroCivicoResidenza" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="cittaResidenza" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="numeroTelefono" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="immagine" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="amministratore" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UTENTI_AMICIZIE" Member="AMICIZIEs" ThisKey="email" OtherKey="emailUtente1" Type="AMICIZIE" />
+      <Association Name="UTENTI_AMICIZIE1" Member="AMICIZIEs1" ThisKey="email" OtherKey="emailUtente2" Type="AMICIZIE" />
+      <Association Name="UTENTI_CATEGORIE" Member="CATEGORIEs" ThisKey="email" OtherKey="emailUtente" Type="CATEGORIE" />
+      <Association Name="UTENTI_SEZIONI" Member="SEZIONIs" ThisKey="email" OtherKey="emailUtente" Type="SEZIONI" />
+      <Association Name="UTENTI_RICHIESTE_AMICIZIE" Member="RICHIESTE_AMICIZIEs" ThisKey="email" OtherKey="emailMittente" Type="RICHIESTE_AMICIZIE" />
+      <Association Name="UTENTI_RICHIESTE_AMICIZIE1" Member="RICHIESTE_AMICIZIEs1" ThisKey="email" OtherKey="emailDestinatario" Type="RICHIESTE_AMICIZIE" />
+      <Association Name="UTENTI_MESSAGGI" Member="MESSAGGIs" ThisKey="email" OtherKey="emailMittente" Type="MESSAGGI" />
+      <Association Name="UTENTI_MESSAGGI1" Member="MESSAGGIs1" ThisKey="email" OtherKey="emailDestinatario" Type="MESSAGGI" />
+      <Association Name="UTENTI_PRODOTTI" Member="PRODOTTIs" ThisKey="email" OtherKey="emailUtenteAcquisto" Type="PRODOTTI" />
+      <Association Name="UTENTI_PRODOTTI1" Member="PRODOTTIs1" ThisKey="email" OtherKey="emailUtenteVendita" Type="PRODOTTI" />
+      <Association Name="UTENTI_POST" Member="POSTs" ThisKey="email" OtherKey="emailUtente" Type="POST" />
+      <Association Name="UTENTI_COMMENTI" Member="COMMENTIs" ThisKey="email" OtherKey="emailUtente" Type="COMMENTI" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RICHIESTE_AMICIZIE" Member="RICHIESTE_AMICIZIEs">
+    <Type Name="RICHIESTE_AMICIZIE">
+      <Column Name="dataRichiesta" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="timeRichiesta" Type="System.TimeSpan" DbType="Time NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="dataRisposta" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="timeRisposta" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="accettata" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="emailMittente" Type="System.String" DbType="VarChar(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="emailDestinatario" Type="System.String" DbType="VarChar(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="UTENTI_RICHIESTE_AMICIZIE" Member="UTENTI" ThisKey="emailMittente" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+      <Association Name="UTENTI_RICHIESTE_AMICIZIE1" Member="UTENTI1" ThisKey="emailDestinatario" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MESSAGGI" Member="MESSAGGIs">
+    <Type Name="MESSAGGI">
+      <Column Name="codiceMessaggio" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="descrizione" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="emailMittente" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="emailDestinatario" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Association Name="UTENTI_MESSAGGI" Member="UTENTI" ThisKey="emailMittente" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+      <Association Name="UTENTI_MESSAGGI1" Member="UTENTI1" ThisKey="emailDestinatario" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PRODOTTI" Member="PRODOTTIs">
+    <Type Name="PRODOTTI">
+      <Column Name="codiceProdotto" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descrizione" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="immagine" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="prezzo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dataAcquisto" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="emailUtenteAcquisto" Type="System.String" DbType="VarChar(45)" CanBeNull="true" />
+      <Column Name="dataVendita" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="venduto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="emailUtenteVendita" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="nomeCategoria" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nomeSezione" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="CATEGORIE_PRODOTTI" Member="CATEGORIE" ThisKey="nomeCategoria" OtherKey="nome" Type="CATEGORIE" IsForeignKey="true" />
+      <Association Name="SEZIONI_PRODOTTI" Member="SEZIONI" ThisKey="nomeSezione" OtherKey="nome" Type="SEZIONI" IsForeignKey="true" />
+      <Association Name="UTENTI_PRODOTTI" Member="UTENTI" ThisKey="emailUtenteAcquisto" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+      <Association Name="UTENTI_PRODOTTI1" Member="UTENTI1" ThisKey="emailUtenteVendita" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.POST" Member="POSTs">
+    <Type Name="POST">
+      <Column Name="codicePost" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="titolo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descrizione" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="emailUtente" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="nomeSezione" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="POST_COMMENTI" Member="COMMENTIs" ThisKey="codicePost" OtherKey="codicePost" Type="COMMENTI" />
+      <Association Name="SEZIONI_POST" Member="SEZIONI" ThisKey="nomeSezione" OtherKey="nome" Type="SEZIONI" IsForeignKey="true" />
+      <Association Name="UTENTI_POST" Member="UTENTI" ThisKey="emailUtente" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.COMMENTI" Member="COMMENTIs">
+    <Type Name="COMMENTI">
+      <Column Name="codiceCommento" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descrizione" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="data" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="emailUtente" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="codicePost" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="POST_COMMENTI" Member="POST" ThisKey="codicePost" OtherKey="codicePost" Type="POST" IsForeignKey="true" />
+      <Association Name="UTENTI_COMMENTI" Member="UTENTI" ThisKey="emailUtente" OtherKey="email" Type="UTENTI" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

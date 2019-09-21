@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E959026-0C78-4448-99AA-2E29DBB8A23F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SocialNetworkVendite</RootNamespace>
+    <AssemblyName>SocialNetworkVendite</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccettaRifiutaRichiestaAmicizia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccettaRifiutaRichiestaAmicizia.Designer.cs">
+      <DependentUpon>AccettaRifiutaRichiestaAmicizia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssociaCategoriaSezione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssociaCategoriaSezione.Designer.cs">
+      <DependentUpon>AssociaCategoriaSezione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CancellaAmicizia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancellaAmicizia.Designer.cs">
+      <DependentUpon>CancellaAmicizia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompraProdottoVendita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompraProdottoVendita.Designer.cs">
+      <DependentUpon>CompraProdottoVendita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreaCategoria.Designer.cs">
+      <DependentUpon>CreaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreaCommentoPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreaCommentoPost.Designer.cs">
+      <DependentUpon>CreaCommentoPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreaPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreaPost.Designer.cs">
+      <DependentUpon>CreaPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreaSezione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreaSezione.Designer.cs">
+      <DependentUpon>CreaSezione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminaVenditaProdotto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminaVenditaProdotto.Designer.cs">
+      <DependentUpon>EliminaVenditaProdotto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InviaRichiestaAmicizia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InviaRichiestaAmicizia.Designer.cs">
+      <DependentUpon>InviaRichiestaAmicizia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvioMessaggio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvioMessaggio.Designer.cs">
+      <DependentUpon>InvioMessaggio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SocialNetworkVenditeDb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SocialNetworkVenditeDb.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="VendiProdotto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VendiProdotto.Designer.cs">
+      <DependentUpon>VendiProdotto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaAmici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaAmici.Designer.cs">
+      <DependentUpon>VisualizzaAmici.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaCommentiPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaCommentiPost.Designer.cs">
+      <DependentUpon>VisualizzaCommentiPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaMessaggi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaMessaggi.Designer.cs">
+      <DependentUpon>VisualizzaMessaggi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaPost.Designer.cs">
+      <DependentUpon>VisualizzaPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaProdottiAttualmenteInVendita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaProdottiAttualmenteInVendita.Designer.cs">
+      <DependentUpon>VisualizzaProdottiAttualmenteInVendita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaProdottiComprati.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaProdottiComprati.Designer.cs">
+      <DependentUpon>VisualizzaProdottiComprati.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaProdottiNonVenduti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaProdottiNonVenduti.Designer.cs">
+      <DependentUpon>VisualizzaProdottiNonVenduti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaProdottiVenduti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaProdottiVenduti.Designer.cs">
+      <DependentUpon>VisualizzaProdottiVenduti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaProdottoVendita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaProdottoVendita.Designer.cs">
+      <DependentUpon>VisualizzaProdottoVendita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizzaTuttiUtenti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizzaTuttiUtenti.Designer.cs">
+      <DependentUpon>VisualizzaTuttiUtenti.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AccettaRifiutaRichiestaAmicizia.resx">
+      <DependentUpon>AccettaRifiutaRichiestaAmicizia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssociaCategoriaSezione.resx">
+      <DependentUpon>AssociaCategoriaSezione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancellaAmicizia.resx">
+      <DependentUpon>CancellaAmicizia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompraProdottoVendita.resx">
+      <DependentUpon>CompraProdottoVendita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreaCategoria.resx">
+      <DependentUpon>CreaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreaCommentoPost.resx">
+      <DependentUpon>CreaCommentoPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreaPost.resx">
+      <DependentUpon>CreaPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreaSezione.resx">
+      <DependentUpon>CreaSezione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminaVenditaProdotto.resx">
+      <DependentUpon>EliminaVenditaProdotto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InviaRichiestaAmicizia.resx">
+      <DependentUpon>InviaRichiestaAmicizia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvioMessaggio.resx">
+      <DependentUpon>InvioMessaggio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VendiProdotto.resx">
+      <DependentUpon>VendiProdotto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaAmici.resx">
+      <DependentUpon>VisualizzaAmici.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaCommentiPost.resx">
+      <DependentUpon>VisualizzaCommentiPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaMessaggi.resx">
+      <DependentUpon>VisualizzaMessaggi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaPost.resx">
+      <DependentUpon>VisualizzaPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaProdottiAttualmenteInVendita.resx">
+      <DependentUpon>VisualizzaProdottiAttualmenteInVendita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaProdottiComprati.resx">
+      <DependentUpon>VisualizzaProdottiComprati.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaProdottiNonVenduti.resx">
+      <DependentUpon>VisualizzaProdottiNonVenduti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaProdottiVenduti.resx">
+      <DependentUpon>VisualizzaProdottiVenduti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaProdottoVendita.resx">
+      <DependentUpon>VisualizzaProdottoVendita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizzaTuttiUtenti.resx">
+      <DependentUpon>VisualizzaTuttiUtenti.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="SocialNetworkVenditeDb.dbml.layout">
+      <DependentUpon>SocialNetworkVenditeDb.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SocialNetworkVenditeDb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SocialNetworkVenditeDb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
